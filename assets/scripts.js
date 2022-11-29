@@ -30,4 +30,35 @@ function checkout() {
     console.log('User is checking out.')
     //Let your customer know how many items they are purchasing and the price
     alert("Current Price="+addedToCart.getTotalCost+" itemCount="+addedToCart.getItemCount)
+    prompt("Enter you Address and Name ")
+
+}
+ 
+function clearCart() {
+   //clear the cart, reset price and item count to 0 lab 9
+  
+}
+
+
+ //add to cart function lab 9
+function addToCart(cookieIndex) {
+ 
+   var addedToCart = cookies[cookieIndex]
+   cart.addItem(addedToCart)
+   document.querySelector("#cartItems").innerHTML = cart.getItemCount()
+   document.querySelector(".hoverText").innerHTML = cart.getTotalCost()
+}
+
+//dark mode lab 9
+function darkMode() {
+    console.log("yur ")
+    document.querySelector("body").classList.toggle("darkMode");
+    
+    if (document.querySelector("body").classList.contains("darkMode")) {
+      document.querySelector("button").innerHTML = "Engage Light Mode"
+     
+    
+    } else {
+      document.querySelector("button").innerHTML = "Engage Dark Mode"
+    }
 }

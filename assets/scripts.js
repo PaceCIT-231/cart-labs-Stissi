@@ -23,14 +23,20 @@ function addToCart(cookie) {
        currentPrice = currentPrice + 25;
    console.log(currentPrice);
    //add the correct price to the currentPrice variable
+   document.querySelector("#cartItems").innerHTML = itemCount
+   document.querySelector(".hoverText").innerHTML = currentPrice
 
 }
 
 function checkout() {
     console.log('User is checking out.')
     //Let your customer know how many items they are purchasing and the price
-    alert("Current Price="+addedToCart.getTotalCost+" itemCount="+addedToCart.getItemCount)
+    alert("Current Price="+currentPrice+" itemCount="+itemCount)
     prompt("Enter you Address and Name ")
+    currentPrice=0 
+    itemCount=0
+    document.querySelector("#cartItems").innerHTML = itemCount
+   document.querySelector(".hoverText").innerHTML = currentPrice
 
 }
  
@@ -39,15 +45,6 @@ function clearCart() {
   
 }
 
-
- //add to cart function lab 9
-function addToCart(cookieIndex) {
- 
-   var addedToCart = cookies[cookieIndex]
-   cart.addItem(addedToCart)
-   document.querySelector("#cartItems").innerHTML = cart.getItemCount()
-   document.querySelector(".hoverText").innerHTML = cart.getTotalCost()
-}
 
 //dark mode lab 9
 function darkMode() {

@@ -53,6 +53,11 @@ section.tile img {
     max-width: 500px;
 }
 
+.darkMode {
+    background-color: black;
+    color: white;
+}
+
 @media (min-width: 1000px) {
     header {
         position: relative; 

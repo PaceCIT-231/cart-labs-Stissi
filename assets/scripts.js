@@ -1,4 +1,20 @@
-let currentPrice=0, itemCount=0
+const cart = {
+    currentPrice: 0,
+    items: [],
+    addItem: function(cookie, price) {
+       this.items.push(cookie); // add a cookie (string) to the items array
+
+       this.currentPrice = this.currentPrice + price; //add the price (number) to the currentPrice properties
+
+    },
+    clear: function() {
+
+        currentPrice = 0;
+        this.items.length = 0;
+        //reset the currentPrice and items properties
+        
+    },
+}
 
 function addToCart(cookie) {
     /* 
@@ -11,21 +27,29 @@ function addToCart(cookie) {
    
    console.log('The user is adding this type of cookie to their cart: ' , cookie) 
 
-   console.log(itemCount++) //add 1 to the itemCount variable
+   //document.getElementByID("cartItems").innerText = itemCount;
+   //console.log(itemCount++); //adds 1 to the itemCount variable
+
+  //this.items.length;
 
    if(cookie == 'peanut butter')
-       currentPrice = currentPrice + 20;
+       cart.addItem(cookie, 20)
    if(cookie == 'sandies')
-       currentPrice = currentPrice + 30;
+       cart.addItem(cookie, 30)
    if(cookie == 'party press')
-       currentPrice = currentPrice + 35;
+       cart.addItem(cookie, 35)
    if(cookie == 'chocolate chip')
-       currentPrice = currentPrice + 25;
-   console.log(currentPrice);
-   //add the correct price to the currentPrice variable
-   document.querySelector("#cartItems").innerHTML = itemCount
-   document.querySelector(".hoverText").innerHTML = currentPrice
+   cart.addItem(cookie, 25)
 
+   document.getElementById("cartItems").innerText = cart.items.length;
+
+   //console.log(currentPrice);
+
+   //cart.currentPrice;
+   document.querySelector("span").innerHTML = "$" + cart.currentPrice;
+
+   //add the correct price to the currentPrice variable
+   console.log(cart)
 }
 
 function checkout() {
@@ -35,16 +59,12 @@ function checkout() {
     prompt("Enter you Address and Name ")
     currentPrice=0 
     itemCount=0
-    document.querySelector("#cartItems").innerHTML = itemCount
-   document.querySelector(".hoverText").innerHTML = currentPrice
+    cart.clear();
+    
+    document.querySelector("span").innerHTML = "$" + cart.price;
+   document.getElementById("cartItems").innerText = cart.items.length;
 
 }
- 
-function clearCart() {
-   //clear the cart, reset price and item count to 0 lab 9
-  
-}
-
 
 //dark mode lab 9
 function darkMode() {

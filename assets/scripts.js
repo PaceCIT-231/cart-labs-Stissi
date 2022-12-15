@@ -57,9 +57,7 @@ function checkout() {
     //Let your customer know how many items they are purchasing and the price
     alert("Current Price="+currentPrice+" itemCount="+itemCount)
     prompt("Enter you Address and Name ")
-    currentPrice=0 
-    itemCount=0
-    cart.clear();
+   
     
     document.querySelector("span").innerHTML = "$" + cart.price;
    document.getElementById("cartItems").innerText = cart.items.length;
@@ -79,3 +77,43 @@ function darkMode() {
       document.querySelector("button").innerHTML = "Engage Dark Mode"
     }
 }
+  
+  // define the clearCart function
+  function clearCart() {
+    // reset the price and itemCount of the cart object
+    cart.price = 0;
+    cart.itemCount = 0;
+  
+    // output the reset price and itemCount
+    console.log(`The cart has been cleared. The new price is ${cart.price} and the new item count is ${cart.itemCount}.`);
+  }
+  
+  // call the clearCart function
+  clearCart();
+  
+  // get the "Clear Cart" button from the DOM
+let clearCartButton = document.getElementById('clear-cart-button');
+
+// register the clearCart function as an event handler for the "Clear Cart" button
+clearCartButton.addEventListener('click', clearCart);
+  
+// add a getSummary method to the cart object
+getSummary: function(){
+    return `The cart has a total price of ${this.currentPrice} and a total item count of ${this.itemCount}.`;
+}
+;
+
+// call the getSummary method
+console.log(cart.getSummary());
+  
+// get the element with an id of "summary-body" from the DOM
+let summaryBody = document.getElementById('summary-body');
+
+// set the innerHTML of the "summary-body" element using the cart's getSummary method
+summaryBody.innerHTML = cart.getSummary();
+
+// get the element with an id of "summary" from the DOM
+let summary = document.getElementById('summary');
+
+// set the style.display property of the "summary" element to "block"
+summary.style.display = "block";
